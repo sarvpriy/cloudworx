@@ -1,32 +1,75 @@
 <template>
   <div class="dashboard">
       <DashboardHeader />
-      <div class="row-1">
-        <SingleStateCard />
-        <SingleStateCard />
-        <SingleStateCard />
-        <SingleStateCard />
+      <Draggable class="row" v-model="myArray" group="states" @start="drag=true" @end="drag=false">
+            <SingleStateCard v-for="element in myArray" :key="element.icon" :states="element" class="col-3" />
+        </Draggable>
+      <div class="row">
+          <Aquisition class="col-6"/>
+          <UsersByCountry class="col-6"/>
       </div>
-      <div class="row-2">
-          <Panel />
-          <Panel />
+      <div class="row">
+            <Revenue class="col-6"/>
+            <div class="row-2 col-6">
+                <SuperApp class="col-6"/>
+                <Feed class="col-6"/>
+            </div>
       </div>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque ipsum tempore saepe nulla culpa suscipit odit quidem tempora placeat? Corporis placeat quas ducimus quisquam eveniet, veniam quasi voluptas magnam tempora.</p>
   </div>
 </template>
 
 <script>
-import Panel from './Panel.vue'
 import DashboardHeader from './DashboardHeader.vue'
-import SingleStateCard from './SingleStateCard.vue'
+import SingleStateCard from './common/SingleStateCard'
+import Draggable from 'vuedraggable'
+import Aquisition from "./Aquisition";
+import UsersByCountry from './UsersByCountry.vue';
+import Revenue from './Revenue.vue';
+import SuperApp from './SuperApp.vue';
+import Feed from './Feed.vue';
 
 export default {
   name: 'Dashboard',
   components: {
     DashboardHeader,
     SingleStateCard,
-    Panel
-  }
+    Draggable,
+    Aquisition,
+    UsersByCountry,
+    Revenue,
+    SuperApp,
+    Feed,
+  },
+    data() {
+        return {
+            myArray: [
+                {
+                    label: 'New Visits',
+                    value: '57,890',
+                    percentage: '70%',
+                    icon: 'user'
+                },
+                {
+                    label: 'Perchases',
+                    value: '$ 89,760',
+                    percentage: '68%',
+                    icon: 'doller'
+                },
+                {
+                    label: 'Active users',
+                    value: '178,391',
+                    percentage: '76%',
+                    icon: 'smile'
+                },
+                {
+                    label: 'Returned',
+                    value: '32,590',
+                    percentage: '58%',
+                    icon: 'refresh'
+                }
+            ],
+        }
+    }
 }
 </script>
 
@@ -34,10 +77,5 @@ export default {
 <style scoped>
 .dashboard {
 
-}
-.row-1, .row-2 {
-    display: flex;
-    padding: 5px 15px;
-    justify-content: space-between;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-  <div class="card">
-      <div class="percentage">70 %</div>
+  <div class="card col-3">
+      <div class="percentage">{{ states.percentage }}</div>
       <div class="state-value">
-          <label>New Visits</label>
-          <p>57,820</p>
+          <label>{{ states.label }}</label>
+          <p>{{ states.value }}</p>
       </div>
       <div class="icon">
           <span class="fa fa-user fa-3x"></span>
@@ -13,7 +13,10 @@
 
 <script>
 export default {
-    name: 'SingleStateCard'
+    name: 'SingleStateCard',
+    props: {
+        states: Object
+    }
 }
 </script>
 
@@ -22,7 +25,7 @@ export default {
 .card {
     display: flex;
     flex-direction: row;
-    width: 25%;
+    /* width: 370px; */
     justify-content: space-between;
     align-items: center;
     background: #fff;
