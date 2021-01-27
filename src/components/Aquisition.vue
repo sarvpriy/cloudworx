@@ -1,13 +1,13 @@
 <template>
-    <Panel ref="panel" :headerTitle="headerTitle" class="">
-        <div class="traffic">
+    <Panel ref="panel" :headerTitle="headerTitle">
+        <div class="b-traffic">
             <highcharts :options="chartOptions"></highcharts>
-            <div class="traffic-type-container">
-                <div class="traffic-type-item" v-for="type in trafficData" :key="type.color">
-                    <div class="color-box" :style="'background: '+type.color"></div>
-                    <div class="traffic-type">
-                        <p class="name">{{ type.name }}</p>
-                        <p class="percentage">{{ type.y | positive-percentage }}</p>
+            <div class="b-traffic__type-container">
+                <div class="b-traffic__type-item" v-for="type in trafficData" :key="type.color">
+                    <div class="b-traffic__color-box" :style="'background: '+type.color"></div>
+                    <div class="b-traffic__type">
+                        <p class="b-traffic__name">{{ type.name }}</p>
+                        <p class="b-traffic__percentage">{{ type.y | positive-percentage }}</p>
                     </div>
                 </div>
             </div>
@@ -139,18 +139,18 @@ export default {
 </script>
 
 <style scoped>
-.traffic {
+.b-traffic {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 .chart {}
-.traffic-type-container {
+.b-traffic__type-container {
     display: flex;
     flex-direction: column;
 }
-.traffic-type-item {
+.b-traffic__type-item {
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -158,19 +158,19 @@ export default {
     min-width: 350px;
     margin: 10px;
 }
-.color-box {
+.b-traffic__color-box {
     /* background: green; */
     height: 30px;
     width: 30px;
     border-radius: 50%;
     margin-right: 10px;
 }
-.traffic-type {
+.b-traffic__type {
     display: flex;
     justify-content: space-between;
     width: 80%;
     border-bottom: 4px solid #ddd;
 }
-.name {}
-.percentage {}
+.b-traffic__name {}
+.b-traffic__percentage {}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <Panel ref="panel" :headerTitle="headerTitle" class="">
+    <Panel ref="panel" :headerTitle="headerTitle">
         <highcharts :constructorType="'mapChart'" :options="chartOptions"></highcharts>
     </Panel>
 </template>

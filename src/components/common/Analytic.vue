@@ -1,9 +1,9 @@
 <template>
-  <div class="card col-3">
-      <div class="percentage">{{ states.percentage }}</div>
-      <div class="state-value">
-          <label>{{ states.label }}</label>
-          <p>{{ states.value }}</p>
+  <div class="b-analytics col-3">
+      <div class="b-analytics__percentage">{{ states.percentage }}</div>
+      <div class="b-analytics__type">
+          <label class="b-analytics__label">{{ states.label }}</label>
+          <p class="b-analytics__value">{{ states.value }}</p>
       </div>
       <!-- <div class="circular-progress">
         <div class="circular-progress-circle">
@@ -14,24 +14,29 @@
         </div>
     </div> -->
 
-      <div class="icon">
+      <div class="b-analytics__icon">
           <span class="fa fa-user fa-3x"></span>
       </div>
   </div>
 </template>
 
 <script>
+import { gsap } from "gsap";
+
 export default {
     name: 'Analytic',
     props: {
         states: Object
+    },
+    mounted() {
+        // gsap.fromTo('.b-analytics',{opacity:0, y: 20 }, {opacity: 1 , y: 0 , duration: 1 });
     }
 }
 </script>
 
 <style scoped>
 
-.card {
+.b-analytics {
     display: flex;
     flex-direction: row;
     /* width: 370px; */
@@ -44,7 +49,7 @@ export default {
     margin: 10px;
 }
 
-.percentage {
+.b-analytics__percentage {
     border-radius: 50%;
     border: 5px solid #e3e3e3;
     width: 50px;
@@ -54,15 +59,17 @@ export default {
     justify-content: center;
     align-items: center;
 }
-.state-value {
+.b-analytics__type {
     width: 72%;
     /* border: 1px solid red; */
     text-align: start;
     padding-left: 10px;
 }
-.icon {
+.b-analytics__icon {
     color: #ddd;
 }
+.b-analytics__label {}
+.b-analytics__value {}
 
 /* .circular-progress {
   position: relative;

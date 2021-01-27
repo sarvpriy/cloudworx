@@ -1,12 +1,11 @@
 <template>
     <Panel :headerTitle="headerTitle">
-        <div class="feeds-container">
-            <div class="feed-item" v-for="feed in feeds" :key="feed.id">
-                <!-- {{ feed.name }} -->
-                <img class="avatar" src="https://picsum.photos/50" alt="avatar" />
-                <div class="details">
-                    <p class="name">{{ feed.name }}</p>
-                    <p class="comment">{{ feed.comment }}</p>
+        <div class="b-feeds__container">
+            <div class="b-feeds__item" v-for="feed in feeds" :key="feed.id">
+                <img class="b-feeds__avatar" src="https://picsum.photos/50" alt="avatar" />
+                <div class="b-feeds__details">
+                    <p class="b-feeds__name">{{ feed.name }}</p>
+                    <p class="b-feeds__comment">{{ feed.comment }}</p>
                 </div>
             </div>
         </div>
@@ -36,27 +35,27 @@ export default {
 </script>
 
 <style scoped>
-.feeds-container {
+.b-feeds__container {
     display: flex;
     flex-direction: column;
 }
-.feed-item {
+.b-feeds__item {
     display: flex;
     padding: 15px;
     border-top: 1px solid #ddd;
     justify-content: center;
     align-items: center;
 }
-.avatar {
+.b-feeds__avatar {
     border-radius: 50%;
 }
-.details {
+.b-feeds__details {
     margin-left: 15px;
 }
-.name {
+.b-feeds__name {
     font-weight: bold;
 }
-.comment {
+.b-feeds__comment {
     font-size: 14px;
     max-width: 300px;
     min-width: 150px;

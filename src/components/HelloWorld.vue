@@ -1,27 +1,32 @@
 <template>
   <!-- <super-app /> -->
   <!-- <feed/> -->
-  <Aquisition />
+  <!-- <Aquisition /> -->
   <!-- <users-by-country /> -->
   <!-- <revenue /> -->
+  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores suscipit est laboriosam magni, atque corrupti tenetur rem aliquid debitis alias vero repudiandae fuga, eum distinctio aperiam autem natus. Nobis, quae.</p>
 </template>
 
 <script>
 // import Feed from './Feed.vue'
 // import SuperApp from './SuperApp.vue'
-import Aquisition from "./Aquisition";
-import UsersByCountry from './UsersByCountry.vue';
-import Revenue from './Revenue.vue';
+// import Aquisition from "./Aquisition";
+// import UsersByCountry from './UsersByCountry.vue';
+// import Revenue from './Revenue.vue';
 
 export default {
   components: { 
     // SuperApp, 
     // Feed ,
-    Aquisition,
-    UsersByCountry,
-    Revenue,
+    // Aquisition,
+    // UsersByCountry,
+    // Revenue,
   },
   name: 'HelloWorld',
+  data() {
+        return {
+        }
+    }
 }
 </script>
 
