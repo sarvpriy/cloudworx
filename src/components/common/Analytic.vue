@@ -14,10 +14,7 @@
         <div class="segment" style="transform: rotate(270deg) skew(0deg)"></div>
         <div class="segment" style="transform: rotate(0deg) skew(0deg)"></div>
         <div class="segment" style="transform: rotate(90deg) skew(20deg)"></div>
-        <div
-          class="segment"
-          style="transform: rotate(180deg) skew(90deg)"
-        ></div>
+        <div class="segment" style="transform: rotate(180deg) skew(90deg)"></div>
       </div>
     </div>
 
@@ -33,15 +30,11 @@
 </template>
 
 <script>
-import { gsap } from "gsap";
 
 export default {
   name: "Analytic",
   props: {
     states: Object,
-  },
-  mounted() {
-    // gsap.fromTo('.b-analytics',{opacity:0, y: 20 }, {opacity: 1 , y: 0 , duration: 1 });
   },
   computed: {
     getCircleSkew1: function () {
@@ -77,6 +70,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #fff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   padding: 10px;
   margin: 10px;
@@ -86,55 +80,24 @@ export default {
 }
 @media only screen and (max-width: 420px) {
   .b-analytics {
-    display: flex;
-    justify-content: space-between;
-    background: #fff;
-    align-items: center;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    margin: 10px;
-    position: relative;
-    width: inherit;
-    min-width: 251px;
   }
 }
 @media only screen and (min-width: 421px) and (max-width: 992px) {
   .b-analytics {
-    display: flex;
-    justify-content: space-between;
-    background: #fff;
-    align-items: center;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    margin: 10px;
-    position: relative;
-    width: inherit;
-    min-width: 251px;
     max-width: 374px;
   }
 }
 @media only screen and (min-width: 993px) {
   .b-analytics {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #fff;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    margin: 10px;
-    position: relative;
-    max-width: 400px;
-    min-width: 251px;
     width: 20%;
+    max-width: 400px;
   }
 }
 
 .b-analytics__percentage {
   border-radius: 50%;
-  /* border: 5px solid #e3e3e3; */
   width: 40px;
   height: 40px;
-  /* padding: 9px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,7 +108,6 @@ export default {
 }
 .b-analytics__type {
   width: 72%;
-  /* border: 1px solid red; */
   text-align: start;
   padding-left: 10px;
 }
@@ -162,7 +124,6 @@ export default {
   left: 1px0;
   display: inline-block;
   margin-right: 20px;
-  /* top: 10px; */
   left: 0px;
   z-index: 1;
 }

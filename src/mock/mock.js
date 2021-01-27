@@ -90,6 +90,7 @@ export const usersByCountry = [
 
 export const revenueData = [{
     name: 'USA',
+    color: '#aae3db',
     data: [
         null, null, null, null, null, 6, 11, 32, 110, 235,
         369, 640, 1005, 1436, 2063, 3057, 4618, 6444, 9822, 15468,
@@ -102,6 +103,7 @@ export const revenueData = [{
     ]
 }, {
     name: 'USSR/Russia',
+    color: '#61c3ba',
     data: [null, null, null, null, null, null, null, null, null, null,
         5, 25, 50, 120, 150, 200, 426, 660, 869, 1060,
         1605, 2471, 3322, 4238, 5221, 6129, 7089, 8339, 9399, 10538,

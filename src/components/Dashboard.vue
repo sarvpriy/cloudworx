@@ -104,49 +104,10 @@ export default {
 .b-dashboard {
   padding: 20px;
 }
-.b-dashboard__header {
-}
-.b-dashboard__analytics {
-}
-.b-dashboard__aq-users {
-}
-.b-dashboard__aq {
-}
-.b-dashboard__users {
-}
-.b-dashboard__revenue-superapp-feed {
-}
-.b-dashboard__revenue {
-}
-.b-dashboard__superapp-feed {
-}
-.b-dashboard__superapp {
-}
-.b-dashboard__feed {
-}
+
 @media only screen and (max-width: 420px) {
   .b-dashboard {
     padding: 4px;
-  }
-  .b-dashboard__header {
-  }
-  .b-dashboard__analytics {
-  }
-  .b-dashboard__aq-users {
-  }
-  .b-dashboard__aq {
-  }
-  .b-dashboard__users {
-  }
-  .b-dashboard__revenue-superapp-feed {
-  }
-  .b-dashboard__revenue {
-  }
-  .b-dashboard__superapp-feed {
-  }
-  .b-dashboard__superapp {
-  }
-  .b-dashboard__feed {
   }
 }
 @media only screen and (min-width: 421px) and (max-width: 992px) {
@@ -165,12 +126,6 @@ export default {
   }
 }
 @media only screen and (min-width: 993px) {
-  /* .b-dashboard {
-    padding: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
   .b-dashboard__analytics {
     display: flex;
     flex-wrap: wrap;

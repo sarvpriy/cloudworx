@@ -87,7 +87,6 @@ export default {
                 series: [{
                     name: 'Traffic',
                     data: this.trafficData,
-                    // size: '80%',
                     innerSize: '60%',
                     dataLabels: {
                         formatter: function () {
@@ -137,97 +136,51 @@ export default {
 </script>
 
 <style scoped>
-/* .b-traffic {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 850px;
-    min-width: 700px;
-} */
-@media only screen and (max-width: 420px) {
 .b-traffic {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-}
-}
-@media only screen and (min-width: 421px) and (max-width: 992px) {
-.b-traffic {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-}
-@media only screen and (min-width: 993px) {
-}
-.chart {}
-.b-traffic__type-container {
-    display: flex;
-    flex-direction: column;
 }
 @media only screen and (max-width: 420px) {
-.b-traffic__type-container {
-    display: flex;
-    flex-direction: column;
-    width: -webkit-fill-available;
-    max-width: -webkit-fill-available;
-}
-}
-@media only screen and (min-width: 421px) and (max-width: 992px) {
-.b-traffic__type-container {
-    display: flex;
-    flex-direction: column;
-    width: -webkit-fill-available;
-    max-width: -webkit-fill-available;
-}
-}
-@media only screen and (min-width: 993px) {
-}
-/* .b-traffic__type-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    min-width: 350px;
-    margin: 10px;
-} */
-@media only screen and (max-width: 420px) {
-.b-traffic__type-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 10px;
-}
-}
-@media only screen and (min-width: 421px) and (max-width: 992px) {
-.b-traffic__type-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 10px;
-}
-}
-@media only screen and (min-width: 993px) {
     .b-traffic {
-        display: flex;
+        flex-wrap: wrap;
     }
+}
+
+.b-traffic__type-container {
+    display: flex;
+    flex-direction: column;
+}
+@media only screen and (max-width: 420px) {
+    .b-traffic__type-container {
+        width: -webkit-fill-available;
+        max-width: -webkit-fill-available;
+    }
+}
+@media only screen and (min-width: 421px) and (max-width: 992px) {
+    .b-traffic__type-container {
+        width: -webkit-fill-available;
+        max-width: -webkit-fill-available;
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 993px) {
     .b-traffic__type-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         width: 50%;
     }
-    .b-traffic__type-item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin: 10px;
-    }
 }
+
+.b-traffic__type-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+
 .b-traffic__color-box {
-    /* background: green; */
     height: 30px;
     width: 30px;
     border-radius: 50%;

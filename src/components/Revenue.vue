@@ -59,18 +59,11 @@ export default {
         //     csv: document.getElementById('csv').innerHTML
         // },
         // drillDown: {},
-        accessibility: {
-          description:
-            "numbers have fallen to 10,577 and 21,000 for the US and Russia, respectively. The decreases continue until 2017 at which point the US holds 4,018 weapons compared to Russia’s 4,500.",
-        },
         title: {
-          text: "US and USSR nuclear stockpiles",
+          text: "",
         },
         subtitle: {
-          text:
-            'Sources: <a href="https://thebulletin.org/2006/july/global-nuclear-stockpiles-1945-2006">' +
-            'thebulletin.org</a> & <a href="https://www.armscontrol.org/factsheets/Nuclearweaponswhohaswhat">' +
-            "armscontrol.org</a>",
+          text: ''
         },
         xAxis: {
           allowDecimals: false,
