@@ -1,7 +1,7 @@
 <template>
   <header>
-      <p>DASHBOARD</p>
-      <p>Home / Dashboard </p>
+      <p class="title">DASHBOARD</p>
+      <p><span class="active">Home</span> / Dashboard </p>
   </header>
 </template>
 
@@ -20,5 +20,15 @@ header {
     align-items: center;
     padding: 5px 15px;
     height: 50px;
+    color: #959595;
+}
+p {
+  font-weight: bold;
+}
+.active {
+  color: #7bcac5;
+}
+.title {
+  font-size: 20px;
 }
 </style>

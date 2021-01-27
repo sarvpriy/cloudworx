@@ -1,5 +1,5 @@
 <template>
-    <Panel>
+    <Panel :panelType="'sm'">
         <div class="b-superapp__header">
             <img class="b-superapp__header-img" src="https://picsum.photos/100" alt="super app" />
             <div class="b-superapp__header-title">Super App</div>

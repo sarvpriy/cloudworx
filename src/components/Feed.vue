@@ -1,5 +1,5 @@
 <template>
-    <Panel :headerTitle="headerTitle">
+    <Panel :headerTitle="headerTitle" :panelType="'sm'">
         <div class="b-feeds__container">
             <div class="b-feeds__item" v-for="feed in feeds" :key="feed.id">
                 <img class="b-feeds__avatar" src="https://picsum.photos/50" alt="avatar" />

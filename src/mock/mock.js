@@ -7,26 +7,26 @@ export const appDetials = {
         {
             label: 'New Visits',
             value: '57,890',
-            percentage: '20%',
+            percentage: 40,
             icon: 'user'
         },
         {
             label: 'Perchases',
             value: '$ 89,760',
-            percentage: '68%',
-            icon: 'doller'
+            percentage: 20,
+            icon: 'dollar-sign'
         },
         {
             label: 'Active users',
             value: '178,391',
-            percentage: '76%',
-            icon: 'smile'
+            percentage: 82,
+            icon: 'grin'
         },
         {
             label: 'Returned',
             value: '32,590',
-            percentage: '58%',
-            icon: 'refresh'
+            percentage: 58,
+            icon: 'redo'
         }
     ],
     'feeds': [

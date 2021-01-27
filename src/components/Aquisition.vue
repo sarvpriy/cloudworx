@@ -1,5 +1,5 @@
 <template>
-    <Panel ref="panel" :headerTitle="headerTitle">
+    <Panel ref="panel" :headerTitle="headerTitle" :panelType="'lg'">
         <div class="b-traffic">
             <highcharts :options="chartOptions"></highcharts>
             <div class="b-traffic__type-container">
@@ -8,6 +8,7 @@
                     <div class="b-traffic__type">
                         <p class="b-traffic__name">{{ type.name }}</p>
                         <p class="b-traffic__percentage">{{ type.y | positive-percentage }}</p>
+                        <div class="b-traffic__percentage-bar" :style="'width: '+type.y+'%'"></div>
                     </div>
                 </div>
             </div>
@@ -19,6 +20,7 @@
 import Panel from "./common/Panel";
 import {Chart} from 'highcharts-vue'
 import { trafficData } from "../mock/mock";
+import windowMixin from "../mixins/window";
 
 export default {
     name: 'Aquisition',
@@ -26,9 +28,9 @@ export default {
         Panel,
         highcharts: Chart,
     },
+    mixins: [windowMixin],
     data() {
         return {
-            windowWidth: window.innerWidth,
             headerTitle: 'AQUISITION CHANNELS',
             chartOptions: {},
             timeoutId: null,
@@ -37,22 +39,16 @@ export default {
     },
     mounted() {
         this.setChartOptions()
-        this.$nextTick(() => {
-            window.addEventListener('resize', this.onResize);
-        })
     },
 
-    methods: {  
-        onResize() {
-            this.windowWidth = window.innerWidth
-        },
+    methods: { 
 
         setChartOptions() {
             this.chartOptions = {
                 chart: {
                     type: 'pie',
-                    width: 400,
-                    height: 400,
+                    width: 300,
+                    height: 300,
                     animation: true,
                     className: '',
                     displayErrors:true,
@@ -121,42 +117,114 @@ export default {
                 //     }]
                 // },
             }
+            this.adjustDims()
+        },
+        adjustDims() {
+            if(this.$refs.panel.$el.clientWidth < 421) {
+                this.chartOptions.chart.width = this.$refs.panel.$el.clientWidth - 50
+                this.chartOptions.chart.height = 300
+            } else {
+                this.chartOptions.chart.width = this.$refs.panel.$el.clientWidth/2
+            }
         }
     },
     watch: {
         windowWidth(newWidth, oldWidth) {
-            // if(this.timeoutId) clearTimeout(this.timeoutId)
-            // this.timeoutId = setTimeout(() => {
-                this.chartOptions.chart.width = this.$refs.panel.$el.clientWidth/2
-            // }, 300)
+            this.adjustDims()
         }
-    },
-
-    beforeDestroy() { 
-        window.removeEventListener('resize', this.onResize); 
     },
 }
 </script>
 
 <style scoped>
+/* .b-traffic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 850px;
+    min-width: 700px;
+} */
+@media only screen and (max-width: 420px) {
 .b-traffic {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
+}
+@media only screen and (min-width: 421px) and (max-width: 992px) {
+.b-traffic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+}
+@media only screen and (min-width: 993px) {
+}
 .chart {}
 .b-traffic__type-container {
     display: flex;
     flex-direction: column;
 }
-.b-traffic__type-item {
+@media only screen and (max-width: 420px) {
+.b-traffic__type-container {
+    display: flex;
+    flex-direction: column;
+    width: -webkit-fill-available;
+    max-width: -webkit-fill-available;
+}
+}
+@media only screen and (min-width: 421px) and (max-width: 992px) {
+.b-traffic__type-container {
+    display: flex;
+    flex-direction: column;
+    width: -webkit-fill-available;
+    max-width: -webkit-fill-available;
+}
+}
+@media only screen and (min-width: 993px) {
+}
+/* .b-traffic__type-item {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
     align-items: center;
     min-width: 350px;
     margin: 10px;
+} */
+@media only screen and (max-width: 420px) {
+.b-traffic__type-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+}
+@media only screen and (min-width: 421px) and (max-width: 992px) {
+.b-traffic__type-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+}
+@media only screen and (min-width: 993px) {
+    .b-traffic {
+        display: flex;
+    }
+    .b-traffic__type-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+    }
+    .b-traffic__type-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 10px;
+    }
 }
 .b-traffic__color-box {
     /* background: green; */
@@ -166,11 +234,19 @@ export default {
     margin-right: 10px;
 }
 .b-traffic__type {
+    position: relative;
     display: flex;
     justify-content: space-between;
     width: 80%;
-    border-bottom: 4px solid #ddd;
+    border-bottom: 4px solid #eeeeee;
 }
 .b-traffic__name {}
 .b-traffic__percentage {}
+.b-traffic__percentage-bar {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    background: #d8d7d7;
+    height: 4px;
+}
 </style>
