@@ -1,18 +1,13 @@
 <template>
   <header>
       <p>DASHBOARD</p>
-      <p>Home / {{w}} </p>
+      <p>Home / Dashboard </p>
   </header>
 </template>
 
 <script>
 export default {
   name: 'DashboardHeader',
-  data: function() {
-    return {
-      w: window.innerWidth
-    }
-  }
 }
 </script>
 

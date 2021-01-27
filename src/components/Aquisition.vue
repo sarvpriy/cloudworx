@@ -7,7 +7,7 @@
                     <div class="color-box" :style="'background: '+type.color"></div>
                     <div class="traffic-type">
                         <p class="name">{{ type.name }}</p>
-                        <p class="percentage">{{ type.y | percentage }}</p>
+                        <p class="percentage">{{ type.y | positive-percentage }}</p>
                     </div>
                 </div>
             </div>
@@ -26,8 +26,6 @@ export default {
         Panel,
         highcharts: Chart,
     },
-    created: function (){
-    },
     data() {
         return {
             windowWidth: window.innerWidth,
@@ -35,11 +33,6 @@ export default {
             chartOptions: {},
             timeoutId: null,
             trafficData,
-        }
-    },
-    filters: {
-        percentage: function(value) {
-            return `+${value}%`
         }
     },
     mounted() {
@@ -104,10 +97,13 @@ export default {
                         formatter: function () {
                             // return this.y > 5 ? this.point.name : null;
                         },
-                        color: '#ffffff',
-                        distance: -30
+                        // color: '#ffffff',
+                        // distance: -30
                     }
                 }],
+                credits: {
+                    enabled: false
+                }
                 // responsive: {
                 //     rules: [{
                 //     condition: {

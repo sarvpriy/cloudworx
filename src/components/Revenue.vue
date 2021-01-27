@@ -7,6 +7,7 @@
 <script>
 import Panel from "./common/Panel";
 import {Chart} from 'highcharts-vue';
+import { revenueData } from "../mock/mock";
 
 export default {
     name: 'Revenue',
@@ -17,12 +18,17 @@ export default {
     data() {
         return {
             headerTitle: 'REVENUE',
-            // chartOptions: {
-            //     series: [{
-            //         data: [1,2,3] // sample data
-            //     }]
-            // },
-            chartOptions: {
+            chartOptions: {}
+        }
+    },
+    mounted() {
+        // chart.getCSV();
+        this.setChartOptions()
+        this.chartOptions.chart.width = this.$refs.panel.$el.clientWidth
+    },
+    methods: {
+        setChartOptions() {
+            this.chartOptions = {
                 chart: {
                     type: 'area',
                     width: 600,
@@ -147,10 +153,6 @@ export default {
                 }
             }
         }
-    },
-    mounted() {
-        // chart.getCSV();
-        this.chartOptions.chart.width = this.$refs.panel.$el.clientWidth
     }
 }
 </script>

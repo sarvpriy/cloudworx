@@ -15,6 +15,8 @@
 
 <script>
 import Panel from "./common/Panel";
+import { appDetials } from "../mock/mock";
+
 
 export default {
     name: 'Feed',
@@ -24,27 +26,11 @@ export default {
     data() {
         return {
             headerTitle: 'FEED',
-            feeds: [
-                {
-                    id: 1,
-                    avatar: '',
-                    name: 'Mark henery',
-                    comment: 'Lorem ipsum, dolor sit amet conse ctetur adipisicing elit.',
-                },
-                {
-                    id: 2,
-                    avatar: '',
-                    name: 'Mark henery',
-                    comment: 'Lorem ipsum, dolor sit amet conse ctetur adipisicing elit.',
-                },
-                {
-                    id: 3,
-                    avatar: '',
-                    name: 'Mark henery',
-                    comment: 'Lorem ipsum, dolor sit amet conse ctetur adipisicing elit.',
-                },
-            ],
+            feeds: [],
         }
+    },
+    mounted() {
+        this.feeds = appDetials.feeds
     }
 }
 </script>

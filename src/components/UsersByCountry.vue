@@ -9,6 +9,8 @@ import Panel from "./common/Panel";
 import {Chart} from 'highcharts-vue'
 import europeMap from '@highcharts/map-collection/custom/europe.geo.json'
 
+import { usersByCountry } from "../mock/mock";
+
 export default {
     name: 'UsersByCountry',
     components: {
@@ -18,7 +20,16 @@ export default {
     data() {
         return {
             headerTitle: 'USERS BY COUNTRY',
-            chartOptions: {
+            chartOptions: {}
+        }
+    },
+    mounted() {
+        this.setMapOptions()
+        this.chartOptions.chart.width = this.$refs.panel.$el.clientWidth
+    },
+    methods: {
+        setMapOptions() {
+            this.chartOptions = {
                 chart: {
                     map: europeMap,
                     height: 400,
@@ -31,27 +42,16 @@ export default {
                     reflow: true,
                 },
 
-                title: {
-                    text: ''
-                },
-
-                subtitle: {
-                    text: ''
-                },
-
-                legend: {
-                    enabled: false
-                },
+                title: {text: ''},
+                subtitle: {text: ''},
+                legend: {enabled: false},
 
                 series: [{
                     name: 'Country',
-                    data: [
-                        ['is', 1],
-                        ['no', 1],
-                        ['se', 1],
-                        ['dk', 1],
-                        ['fi', 1]
-                    ],
+                    type: 'map',
+                    enableMouseTracking: false,
+                    showInLegend: false,
+                    data: usersByCountry,
                     dataLabels: {
                         enabled: true,
                         color: '#FFFFFF',
@@ -62,7 +62,6 @@ export default {
                         }
                     },
                     tooltip: {
-                        headerFormat: '',
                         pointFormat: '{point.name}'
                     }
                 }],
@@ -78,19 +77,12 @@ export default {
                                 verticalAlign: 'bottom',
                                 layout: 'horizontal'
                             },
-                            credits: {
-                                enabled: false
-                            }
+                            credits: {enabled: false}
                         }
                     }]
                 }
             }
         }
-    },
-    mounted() {
-        // console.log(this.$refs.panel.$el.clientWidth)
-        // console.log('hello')
-        this.chartOptions.chart.width = this.$refs.panel.$el.clientWidth
     }
 }
 </script>

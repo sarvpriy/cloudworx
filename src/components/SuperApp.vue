@@ -1,25 +1,25 @@
 <template>
-    <Panel :headerTitle="headerTitle" class="">
+    <Panel>
         <div class="header">
             <img class="header-img" src="https://picsum.photos/100" alt="super app" />
             <div class="header-title">Super App</div>
         </div>
         <div class="bar">
             <p>Most Populer App</p>
-            <p>175$</p>
+            <p>{{ appDetials.mostPopulerApp | doller }}</p>
         </div>
         <div class="bar">
             <div class="item">
                 <p>Total visits</p>
-                <p>47,512</p>
+                <p>{{ appDetials.totalVisits | currency }}</p>
             </div>
             <div class="item">
                 <p>New visits</p>
-                <p>9,217</p>
+                <p>{{ appDetials.newVisits | currency }}</p>
             </div>
             <div class="item">
                 <p>Sales</p>
-                <p>2,938</p>
+                <p>{{ appDetials.sales | currency }}</p>
             </div>
         </div>
     </Panel>
@@ -27,19 +27,21 @@
 
 <script>
 import Panel from "./common/Panel";
-// import {Chart} from 'highcharts-vue'
+import { appDetials } from "../mock/mock";
 
 export default {
     name: 'SuperApp',
     components: {
         Panel,
-        // highcharts: Chart,
     },
     data() {
         return {
-            headerTitle: '',
+            appDetials: '',
         }
-    }
+    },
+    mounted() {
+        this.appDetials = appDetials
+    },
 }
 </script>
 

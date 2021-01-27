@@ -3,8 +3,8 @@
       <DashboardHeader />
       <Draggable>
         <Draggable class="row">
-                <SingleStateCard v-for="element in myArray" :key="element.icon" :states="element" class="col-3" />
-            </Draggable>
+            <Analytic v-for="item in analytics" :key="item.icon" :states="item" class="col-3" />
+        </Draggable>
         <Draggable class="row">
             <Aquisition class="col-6"/>
             <UsersByCountry class="col-6"/>
@@ -22,19 +22,20 @@
 
 <script>
 import DashboardHeader from './DashboardHeader.vue'
-import SingleStateCard from './common/SingleStateCard'
+import Analytic from './common/Analytic'
 import Draggable from 'vuedraggable'
 import Aquisition from "./Aquisition";
 import UsersByCountry from './UsersByCountry.vue';
 import Revenue from './Revenue.vue';
 import SuperApp from './SuperApp.vue';
 import Feed from './Feed.vue';
+import { appDetials } from "../mock/mock";
 
 export default {
   name: 'Dashboard',
   components: {
     DashboardHeader,
-    SingleStateCard,
+    Analytic,
     Draggable,
     Aquisition,
     UsersByCountry,
@@ -44,33 +45,12 @@ export default {
   },
     data() {
         return {
-            myArray: [
-                {
-                    label: 'New Visits',
-                    value: '57,890',
-                    percentage: '70%',
-                    icon: 'user'
-                },
-                {
-                    label: 'Perchases',
-                    value: '$ 89,760',
-                    percentage: '68%',
-                    icon: 'doller'
-                },
-                {
-                    label: 'Active users',
-                    value: '178,391',
-                    percentage: '76%',
-                    icon: 'smile'
-                },
-                {
-                    label: 'Returned',
-                    value: '32,590',
-                    percentage: '58%',
-                    icon: 'refresh'
-                }
-            ],
+            analytics: []
         }
+    },
+    mounted() {
+        // here preprocess the data
+        this.analytics = appDetials.analytics
     }
 }
 </script>

@@ -22,7 +22,7 @@
 
 <script>
 export default {
-    name: 'SingleStateCard',
+    name: 'Analytic',
     props: {
         states: Object
     }

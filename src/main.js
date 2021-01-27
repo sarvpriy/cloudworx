@@ -4,6 +4,7 @@ import Highcharts from "highcharts";
 import HighchartsVue from 'highcharts-vue'
 import Maps from "highcharts/modules/map";
 import './assets/style.css'
+import './filters/filters'
 
 Maps(Highcharts);
 Vue.use(HighchartsVue)
