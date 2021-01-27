@@ -1,5 +1,5 @@
 <template>
-    <Panel :headerTitle="headerTitle" class="fit-content">
+    <Panel ref="panel" :headerTitle="headerTitle" class="">
         <highcharts :options="chartOptions"></highcharts>
     </Panel>
 </template>
@@ -25,9 +25,33 @@ export default {
             chartOptions: {
                 chart: {
                     type: 'area',
-                    height: 300,
                     width: 600,
+                    height: 400,
+                    inverted: false,
+                    reflow: true,
+                    scrollablePlotArea: {
+                        minWidth: 700,
+                        // opacity:0.85,
+                        scrollPositionX: 1
+                    },
+                    // backgroundColor: '#FFFFFF',
+                    // shadow: true
+                    // showAxes: false,
+                    spacing:[10, 20, 15, 10],
+                    styledMode: false
                 },
+                // colorAxis: {
+                //     min: 0,
+                //     max: 30
+                // },
+                credits: {
+                    enabled: false
+                },
+                // data: {
+                //     table: 'datatable',
+                //     csv: document.getElementById('csv').innerHTML
+                // },
+                // drillDown: {},
                 accessibility: {
                     description: 'numbers have fallen to 10,577 and 21,000 for the US and Russia, respectively. The decreases continue until 2017 at which point the US holds 4,018 weapons compared to Russia’s 4,500.'
                 },
@@ -101,9 +125,32 @@ export default {
                     21000, 20000, 19000, 18000, 18000, 17000, 16000, 15537, 14162, 12787,
                     12600, 11400, 5500, 4512, 4502, 4502, 4500, 4500
                     ]
-                }]
+                }],
+
+
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                align: 'center',
+                                verticalAlign: 'bottom',
+                                layout: 'horizontal'
+                            },
+                            credits: {
+                                enabled: false
+                            }
+                        }
+                    }]
                 }
+            }
         }
+    },
+    mounted() {
+        // chart.getCSV();
+        this.chartOptions.chart.width = this.$refs.panel.$el.clientWidth
     }
 }
 </script>

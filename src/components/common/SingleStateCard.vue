@@ -5,6 +5,15 @@
           <label>{{ states.label }}</label>
           <p>{{ states.value }}</p>
       </div>
+      <!-- <div class="circular-progress">
+        <div class="circular-progress-circle">
+            <div class="segment" style="transform: rotate(270deg) skew(70deg)"></div>
+            <div class="segment" style="transform: rotate(0deg) skew(30deg)"></div>
+            <div class="segment" style="transform: rotate(90deg) skew(20deg)"></div>    
+            <div class="segment" style="transform: rotate(180deg) skew(50deg)"></div>
+        </div>
+    </div> -->
+
       <div class="icon">
           <span class="fa fa-user fa-3x"></span>
       </div>
@@ -54,4 +63,29 @@ export default {
 .icon {
     color: #ddd;
 }
+
+/* .circular-progress {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.circular-progress-circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: red;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.segment {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vw;
+  background: blue;
+  transform-origin: 0 0;
+} */
 </style>

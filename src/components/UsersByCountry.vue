@@ -1,5 +1,5 @@
 <template>
-    <Panel :headerTitle="headerTitle" class="fit-content">
+    <Panel ref="panel" :headerTitle="headerTitle" class="">
         <highcharts :constructorType="'mapChart'" :options="chartOptions"></highcharts>
     </Panel>
 </template>
@@ -21,17 +21,22 @@ export default {
             chartOptions: {
                 chart: {
                     map: europeMap,
-                    borderWidth: 1,
-                    height: 300,
-                    width: 600,
+                    height: 400,
+                    width: 200,
+                    borderColor: '#fff',
+                    className: '',
+                    zoomType: 'Xy',
+                    panning: true,
+                    panKey: 'shift',
+                    reflow: true,
                 },
 
                 title: {
-                    text: 'Nordic countries'
+                    text: ''
                 },
 
                 subtitle: {
-                    text: 'Demo of drawing all areas in the map, only highlighting partial data'
+                    text: ''
                 },
 
                 legend: {
@@ -60,9 +65,32 @@ export default {
                         headerFormat: '',
                         pointFormat: '{point.name}'
                     }
-                }]
+                }],
+
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                align: 'center',
+                                verticalAlign: 'bottom',
+                                layout: 'horizontal'
+                            },
+                            credits: {
+                                enabled: false
+                            }
+                        }
+                    }]
+                }
             }
         }
+    },
+    mounted() {
+        // console.log(this.$refs.panel.$el.clientWidth)
+        // console.log('hello')
+        this.chartOptions.chart.width = this.$refs.panel.$el.clientWidth
     }
 }
 </script>

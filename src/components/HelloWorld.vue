@@ -1,15 +1,25 @@
 <template>
   <!-- <super-app /> -->
-  <feed/>
+  <!-- <feed/> -->
+  <Aquisition />
+  <!-- <users-by-country /> -->
+  <!-- <revenue /> -->
 </template>
 
 <script>
-import Feed from './Feed.vue'
+// import Feed from './Feed.vue'
 // import SuperApp from './SuperApp.vue'
+import Aquisition from "./Aquisition";
+import UsersByCountry from './UsersByCountry.vue';
+import Revenue from './Revenue.vue';
+
 export default {
   components: { 
     // SuperApp, 
-    Feed 
+    // Feed ,
+    Aquisition,
+    UsersByCountry,
+    Revenue,
   },
   name: 'HelloWorld',
 }

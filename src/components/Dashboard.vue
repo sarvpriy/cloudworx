@@ -1,20 +1,22 @@
 <template>
   <div class="dashboard">
       <DashboardHeader />
-      <Draggable class="row" v-model="myArray" group="states" @start="drag=true" @end="drag=false">
-            <SingleStateCard v-for="element in myArray" :key="element.icon" :states="element" class="col-3" />
+      <Draggable>
+        <Draggable class="row">
+                <SingleStateCard v-for="element in myArray" :key="element.icon" :states="element" class="col-3" />
+            </Draggable>
+        <Draggable class="row">
+            <Aquisition class="col-6"/>
+            <UsersByCountry class="col-6"/>
         </Draggable>
-      <div class="row">
-          <Aquisition class="col-6"/>
-          <UsersByCountry class="col-6"/>
-      </div>
-      <div class="row">
-            <Revenue class="col-6"/>
-            <div class="row-2 col-6">
-                <SuperApp class="col-6"/>
-                <Feed class="col-6"/>
-            </div>
-      </div>
+        <Draggable class="row">
+                <Revenue class="col-6"/>
+                <Draggable class="row-2 col-6">
+                    <SuperApp class="col-6"/>
+                    <Feed class="col-6"/>
+                </Draggable>
+        </Draggable>
+      </Draggable>
   </div>
 </template>
 
@@ -76,6 +78,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .dashboard {
-
+    padding: 20px;
 }
 </style>

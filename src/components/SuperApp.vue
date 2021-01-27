@@ -1,5 +1,5 @@
 <template>
-    <Panel :headerTitle="headerTitle" class="fit-content">
+    <Panel :headerTitle="headerTitle" class="">
         <div class="header">
             <img class="header-img" src="https://picsum.photos/100" alt="super app" />
             <div class="header-title">Super App</div>

@@ -1,7 +1,6 @@
 body {
     background: #eff3f7;
     margin: 0;
-    width: fit-content;
   }
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -42,6 +41,8 @@ body {
   .row-2 {
     display: flex;
     justify-content: space-between;
+    padding: 10px;
+    padding-top: 0;
   }
   .col-1 {
     width: calc(100%/12);

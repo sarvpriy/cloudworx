@@ -43,18 +43,6 @@ export default {
                     name: 'Mark henery',
                     comment: 'Lorem ipsum, dolor sit amet conse ctetur adipisicing elit.',
                 },
-                {
-                    id: 4,
-                    avatar: '',
-                    name: 'Mark henery',
-                    comment: 'Lorem ipsum, dolor sit amet conse ctetur adipisicing elit.',
-                },
-                {
-                    id: 5,
-                    avatar: '',
-                    name: 'Mark henery',
-                    comment: 'Lorem ipsum, dolor sit amet conse ctetur adipisicing elit.',
-                },
             ],
         }
     }
